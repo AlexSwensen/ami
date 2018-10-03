@@ -72,6 +72,7 @@
         "deploy": "yarn dist:clean && yarn build:clean && yarn dist:ami && yarn dist:examples && gh-pages -d dist"
     },
     "devDependencies": {
+        "@types/node": "^10.11.3",
         "babel-cli": "latest",
         "babel-core": "^6.26.0",
         "babel-loader": "^7.1.2",
@@ -98,11 +99,13 @@
         "rollup-plugin-node-builtins": "^2.1.2",
         "shelljs": "^0.8.2",
         "sinon": "^2.0.0",
+        "ts-loader": "^5.2.1",
+        "typescript": "^3.1.1",
         "uglifyjs-webpack-plugin": "^1.2.7",
         "webpack": "^4.16.3",
         "webpack-bundle-analyzer": "^2.9.0",
-        "webpack-dev-server": "^3.1.5",
         "webpack-cli": "^3.1.0",
+        "webpack-dev-server": "^3.1.5",
         "webpack-watch-livereload-plugin": "^0.0.1"
     },
     "engines": {

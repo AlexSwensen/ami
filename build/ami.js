@@ -27577,206 +27577,37 @@ module.exports = g;
 /*! exports provided: name, version, main, keywords, author, license, repository, config, sideEffects, dependencies, scripts, devDependencies, engines, default */
 /***/ (function(module) {
 
-module.exports = {"name":"ami.js","version":"0.0.23-dev","main":"build/ami.js","keywords":["ami","ami.js","three.js","webgl","dicom","nifti","awesome","medical","imaging","xtk","nrrd","vtk","stl","trk"],"author":{"name":"Nicolas Rannou","email":"nicolas@eunate.ch","url":"https://eunate.ch"},"license":"Apache-2.0","repository":{"type":"git","url":"https://fnndsc.github.io/ami"},"config":{"threeVersion":"93","amiCDN":"https://cdnjs.cloudflare.com/ajax/libs/ami.js","gaKey":"UA-39303022-3","babel":"--module-bind js=babel-loader --colors --display-error-details"},"sideEffects":false,"dependencies":{"OpenJPEG.js":"joedrago/openjpeg#master","dicom-parser":"1.8.1","image-JPEG2000":"ReflexionMed/image-JPEG2000#master","jpeg-lossless-decoder-js":"1.2.3","math-float32-to-binary-string":"^1.0.0","nifti-reader-js":"v0.5.3","nrrd-js":"^0.2.1","pako":"1.0.1","three":"0.92.0"},"scripts":{"build:ami":"webpack --config webpack.config.build.js","build:ami:prod":"cross-env NODE_ENV=production yarn build:ami","build:clean":"rimraf -rf build/*","build:clean:hot":"rimraf -rf build/*.hot-update.*","dev:ami":"webpack --config webpack.config.build.js --hot --watch --colors","dist:ami":"yarn build:clean && yarn build:ami && yarn build:ami:prod && yarn doc","dist:examples":"node ./scripts/buildDist.js && node ./scripts/router.js examples deploy","dist:clean":"rimraf -rf dist/*","analyze:ami":"cross-env NODE_WEBPACK_ANALYZE=true yarn build:ami","analyze:ami:prod":"cross-env NODE_WEBPACK_ANALYZE=true yarn build:ami:prod","clean":"yarn build:clean && yarn dist:clean","example":"node ./scripts/router.js examples","lesson":"node ./scripts/router.js lessons","gen:index:examples":"node ./scripts/genIndexFiles.js examples","gen:index:examples:ga":"cross-env NODE_GA=true node ./scripts/genIndexFiles.js examples","gen:index:lessons":"node ./scripts/genIndexFiles.js lessons","gen:index:lessons:cdn":"node ./scripts/genIndexFiles.js lessons cdn","test":"karma start","testExamples":"yarn dist:clean && yarn dist:examples && echo 'hi'","lint":"eslint src/**/*.js --fix","doc":"jsdoc -p -r -R README.md -c jsdoc.json -d dist/doc src","ami":"yarn lint && yarn dist:ami && yarn test","deploy":"yarn dist:clean && yarn build:clean && yarn dist:ami && yarn dist:examples && gh-pages -d dist"},"devDependencies":{"babel-cli":"latest","babel-core":"^6.26.0","babel-loader":"^7.1.2","babel-preset-env":"^1.6.0","babel-runtime":"^6.26.0","compression-webpack-plugin":"^1.0.1","cross-env":"^3.2.3","eslint":"^5.2.0","eslint-config-google":"latest","gh-pages":"^1.2.0","glslify":"5.1.0","jasmine-core":"^2.99.1","jsdoc":"jsdoc3/jsdoc#master","karma":"^2.0.5","karma-chrome-launcher":"^2.2.0","karma-jasmine":"^1.1.2","karma-sinon":"^1.0.5","karma-spec-reporter":"^0.0.32","karma-webpack":"3.0.0","live-server":"^1.1.0","node-pre-gyp":"^0.10.0","puppeteer":"^1.6.1","rimraf":"^2.6.1","rollup-plugin-node-builtins":"^2.1.2","shelljs":"^0.8.2","sinon":"^2.0.0","uglifyjs-webpack-plugin":"^1.2.7","webpack":"^4.16.3","webpack-bundle-analyzer":"^2.9.0","webpack-dev-server":"^3.1.5","webpack-cli":"^3.1.0","webpack-watch-livereload-plugin":"^0.0.1"},"engines":{"node":">=6.9.0"}};
+module.exports = {"name":"ami.js","version":"0.0.23-dev","main":"build/ami.js","keywords":["ami","ami.js","three.js","webgl","dicom","nifti","awesome","medical","imaging","xtk","nrrd","vtk","stl","trk"],"author":{"name":"Nicolas Rannou","email":"nicolas@eunate.ch","url":"https://eunate.ch"},"license":"Apache-2.0","repository":{"type":"git","url":"https://fnndsc.github.io/ami"},"config":{"threeVersion":"93","amiCDN":"https://cdnjs.cloudflare.com/ajax/libs/ami.js","gaKey":"UA-39303022-3","babel":"--module-bind js=babel-loader --colors --display-error-details"},"sideEffects":false,"dependencies":{"OpenJPEG.js":"joedrago/openjpeg#master","dicom-parser":"1.8.1","image-JPEG2000":"ReflexionMed/image-JPEG2000#master","jpeg-lossless-decoder-js":"1.2.3","math-float32-to-binary-string":"^1.0.0","nifti-reader-js":"v0.5.3","nrrd-js":"^0.2.1","pako":"1.0.1","three":"0.92.0"},"scripts":{"build:ami":"webpack --config webpack.config.build.js","build:ami:prod":"cross-env NODE_ENV=production yarn build:ami","build:clean":"rimraf -rf build/*","build:clean:hot":"rimraf -rf build/*.hot-update.*","dev:ami":"webpack --config webpack.config.build.js --hot --watch --colors","dist:ami":"yarn build:clean && yarn build:ami && yarn build:ami:prod && yarn doc","dist:examples":"node ./scripts/buildDist.js && node ./scripts/router.js examples deploy","dist:clean":"rimraf -rf dist/*","analyze:ami":"cross-env NODE_WEBPACK_ANALYZE=true yarn build:ami","analyze:ami:prod":"cross-env NODE_WEBPACK_ANALYZE=true yarn build:ami:prod","clean":"yarn build:clean && yarn dist:clean","example":"node ./scripts/router.js examples","lesson":"node ./scripts/router.js lessons","gen:index:examples":"node ./scripts/genIndexFiles.js examples","gen:index:examples:ga":"cross-env NODE_GA=true node ./scripts/genIndexFiles.js examples","gen:index:lessons":"node ./scripts/genIndexFiles.js lessons","gen:index:lessons:cdn":"node ./scripts/genIndexFiles.js lessons cdn","test":"karma start","testExamples":"yarn dist:clean && yarn dist:examples && echo 'hi'","lint":"eslint src/**/*.js --fix","doc":"jsdoc -p -r -R README.md -c jsdoc.json -d dist/doc src","ami":"yarn lint && yarn dist:ami && yarn test","deploy":"yarn dist:clean && yarn build:clean && yarn dist:ami && yarn dist:examples && gh-pages -d dist"},"devDependencies":{"@types/node":"^10.11.3","babel-cli":"latest","babel-core":"^6.26.0","babel-loader":"^7.1.2","babel-preset-env":"^1.6.0","babel-runtime":"^6.26.0","compression-webpack-plugin":"^1.0.1","cross-env":"^3.2.3","eslint":"^5.2.0","eslint-config-google":"latest","gh-pages":"^1.2.0","glslify":"5.1.0","jasmine-core":"^2.99.1","jsdoc":"jsdoc3/jsdoc#master","karma":"^2.0.5","karma-chrome-launcher":"^2.2.0","karma-jasmine":"^1.1.2","karma-sinon":"^1.0.5","karma-spec-reporter":"^0.0.32","karma-webpack":"3.0.0","live-server":"^1.1.0","node-pre-gyp":"^0.10.0","puppeteer":"^1.6.1","rimraf":"^2.6.1","rollup-plugin-node-builtins":"^2.1.2","shelljs":"^0.8.2","sinon":"^2.0.0","ts-loader":"^5.2.1","typescript":"^3.1.1","uglifyjs-webpack-plugin":"^1.2.7","webpack":"^4.16.3","webpack-bundle-analyzer":"^2.9.0","webpack-cli":"^3.1.0","webpack-dev-server":"^3.1.5","webpack-watch-livereload-plugin":"^0.0.1"},"engines":{"node":">=6.9.0"}};
 
 /***/ }),
 
-/***/ "./src/ami.js":
+/***/ "./src/ami.ts":
 /*!********************!*\
-  !*** ./src/ami.js ***!
+  !*** ./src/ami.ts ***!
   \********************/
-/*! exports provided: OrthographicCamera, orthographicCameraFactory, TrackballControl, trackballControlFactory, TrackballOrthoControl, trackballOrthoControlFactory, ColorsCore, IntersectionsCore, UtilsCore, ValidatorsCore, SliceGeometry, sliceGeometryFactory, VoxelGeometry, voxelGeometryFactory, BorderHelper, borderHelperFactory, BoundingBoxHelper, boundingBoxHelperFactory, ContourHelper, contourHelperFactory, LocalizerHelper, localizerHelperFactory, LutHelper, lutHelperFactory, SegmentationLutHelper, ProgressBarHelper, ProgressBarEventBasedHelper, SliceHelper, sliceHelperFactory, StackHelper, stackHelperFactory, VolumeRenderingHelper, VolumeRenderingHelperFactory, VolumeLoader, FrameModel, StackModel, SeriesModel, VoxelModel, DicomParser, MghParser, NiftiParser, NrrdParser, SegmentationPreset, ContourUniformShader, ContourFragmentShader, ContourVertexShader, DataUniformShader, DataFragmentShader, DataVertexShader, VRUniformShader, VRFragmentShader, VRVertexShader, LayerUniformShader, LayerFragmentShader, LayerVertexShader, LocalizerUniformShader, LocalizerFragmentShader, LocalizerVertexShader, WidgetsCss, AngleWidget, angleWidgetFactory, AnnotationWidget, annotationWidgetFactory, BiRulerWidget, birulerWidgetFactory, CrossRulerWidget, crossrulerWidgetFactory, EllipseWidget, ellipseWidgetFactory, FreehandWidget, freehandWidgetFactory, HandleWidget, handleWidgetFactory, PolygonWidget, polygonWidgetFactory, RectangleWidget, rectangleWidgetFactory, RulerWidget, rulerWidgetFactory, VoxelProbeWidget, voxelprobeWidgetFactory */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _cameras_cameras__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cameras/cameras */ "./src/cameras/cameras.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "OrthographicCamera", function() { return _cameras_cameras__WEBPACK_IMPORTED_MODULE_0__["OrthographicCamera"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "orthographicCameraFactory", function() { return _cameras_cameras__WEBPACK_IMPORTED_MODULE_0__["orthographicCameraFactory"]; });
-
-/* harmony import */ var _controls_controls__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./controls/controls */ "./src/controls/controls.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TrackballControl", function() { return _controls_controls__WEBPACK_IMPORTED_MODULE_1__["TrackballControl"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "trackballControlFactory", function() { return _controls_controls__WEBPACK_IMPORTED_MODULE_1__["trackballControlFactory"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TrackballOrthoControl", function() { return _controls_controls__WEBPACK_IMPORTED_MODULE_1__["TrackballOrthoControl"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "trackballOrthoControlFactory", function() { return _controls_controls__WEBPACK_IMPORTED_MODULE_1__["trackballOrthoControlFactory"]; });
-
-/* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./core/core */ "./src/core/core.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ColorsCore", function() { return _core_core__WEBPACK_IMPORTED_MODULE_2__["ColorsCore"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IntersectionsCore", function() { return _core_core__WEBPACK_IMPORTED_MODULE_2__["IntersectionsCore"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UtilsCore", function() { return _core_core__WEBPACK_IMPORTED_MODULE_2__["UtilsCore"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ValidatorsCore", function() { return _core_core__WEBPACK_IMPORTED_MODULE_2__["ValidatorsCore"]; });
-
-/* harmony import */ var _geometries_geometries__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./geometries/geometries */ "./src/geometries/geometries.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SliceGeometry", function() { return _geometries_geometries__WEBPACK_IMPORTED_MODULE_3__["SliceGeometry"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sliceGeometryFactory", function() { return _geometries_geometries__WEBPACK_IMPORTED_MODULE_3__["sliceGeometryFactory"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VoxelGeometry", function() { return _geometries_geometries__WEBPACK_IMPORTED_MODULE_3__["VoxelGeometry"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "voxelGeometryFactory", function() { return _geometries_geometries__WEBPACK_IMPORTED_MODULE_3__["voxelGeometryFactory"]; });
-
-/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./helpers/helpers */ "./src/helpers/helpers.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BorderHelper", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["BorderHelper"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "borderHelperFactory", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["borderHelperFactory"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BoundingBoxHelper", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["BoundingBoxHelper"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "boundingBoxHelperFactory", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["boundingBoxHelperFactory"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ContourHelper", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["ContourHelper"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "contourHelperFactory", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["contourHelperFactory"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LocalizerHelper", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["LocalizerHelper"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "localizerHelperFactory", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["localizerHelperFactory"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LutHelper", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["LutHelper"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "lutHelperFactory", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["lutHelperFactory"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SegmentationLutHelper", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["SegmentationLutHelper"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProgressBarHelper", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["ProgressBarHelper"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProgressBarEventBasedHelper", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["ProgressBarEventBasedHelper"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SliceHelper", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["SliceHelper"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sliceHelperFactory", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["sliceHelperFactory"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "StackHelper", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["StackHelper"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "stackHelperFactory", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["stackHelperFactory"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VolumeRenderingHelper", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["VolumeRenderingHelper"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VolumeRenderingHelperFactory", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["VolumeRenderingHelperFactory"]; });
-
-/* harmony import */ var _loaders_loaders__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./loaders/loaders */ "./src/loaders/loaders.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VolumeLoader", function() { return _loaders_loaders__WEBPACK_IMPORTED_MODULE_5__["VolumeLoader"]; });
-
-/* harmony import */ var _models_models__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./models/models */ "./src/models/models.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FrameModel", function() { return _models_models__WEBPACK_IMPORTED_MODULE_6__["FrameModel"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "StackModel", function() { return _models_models__WEBPACK_IMPORTED_MODULE_6__["StackModel"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SeriesModel", function() { return _models_models__WEBPACK_IMPORTED_MODULE_6__["SeriesModel"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VoxelModel", function() { return _models_models__WEBPACK_IMPORTED_MODULE_6__["VoxelModel"]; });
-
-/* harmony import */ var _parsers_parsers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./parsers/parsers */ "./src/parsers/parsers.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DicomParser", function() { return _parsers_parsers__WEBPACK_IMPORTED_MODULE_7__["DicomParser"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MghParser", function() { return _parsers_parsers__WEBPACK_IMPORTED_MODULE_7__["MghParser"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NiftiParser", function() { return _parsers_parsers__WEBPACK_IMPORTED_MODULE_7__["NiftiParser"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NrrdParser", function() { return _parsers_parsers__WEBPACK_IMPORTED_MODULE_7__["NrrdParser"]; });
-
-/* harmony import */ var _presets_presets__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./presets/presets */ "./src/presets/presets.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SegmentationPreset", function() { return _presets_presets__WEBPACK_IMPORTED_MODULE_8__["SegmentationPreset"]; });
-
-/* harmony import */ var _shaders_shaders__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./shaders/shaders */ "./src/shaders/shaders.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ContourUniformShader", function() { return _shaders_shaders__WEBPACK_IMPORTED_MODULE_9__["ContourUniformShader"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ContourFragmentShader", function() { return _shaders_shaders__WEBPACK_IMPORTED_MODULE_9__["ContourFragmentShader"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ContourVertexShader", function() { return _shaders_shaders__WEBPACK_IMPORTED_MODULE_9__["ContourVertexShader"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DataUniformShader", function() { return _shaders_shaders__WEBPACK_IMPORTED_MODULE_9__["DataUniformShader"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DataFragmentShader", function() { return _shaders_shaders__WEBPACK_IMPORTED_MODULE_9__["DataFragmentShader"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DataVertexShader", function() { return _shaders_shaders__WEBPACK_IMPORTED_MODULE_9__["DataVertexShader"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VRUniformShader", function() { return _shaders_shaders__WEBPACK_IMPORTED_MODULE_9__["VRUniformShader"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VRFragmentShader", function() { return _shaders_shaders__WEBPACK_IMPORTED_MODULE_9__["VRFragmentShader"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VRVertexShader", function() { return _shaders_shaders__WEBPACK_IMPORTED_MODULE_9__["VRVertexShader"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LayerUniformShader", function() { return _shaders_shaders__WEBPACK_IMPORTED_MODULE_9__["LayerUniformShader"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LayerFragmentShader", function() { return _shaders_shaders__WEBPACK_IMPORTED_MODULE_9__["LayerFragmentShader"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LayerVertexShader", function() { return _shaders_shaders__WEBPACK_IMPORTED_MODULE_9__["LayerVertexShader"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LocalizerUniformShader", function() { return _shaders_shaders__WEBPACK_IMPORTED_MODULE_9__["LocalizerUniformShader"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LocalizerFragmentShader", function() { return _shaders_shaders__WEBPACK_IMPORTED_MODULE_9__["LocalizerFragmentShader"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LocalizerVertexShader", function() { return _shaders_shaders__WEBPACK_IMPORTED_MODULE_9__["LocalizerVertexShader"]; });
-
-/* harmony import */ var _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./widgets/widgets */ "./src/widgets/widgets.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "WidgetsCss", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["WidgetsCss"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AngleWidget", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["AngleWidget"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "angleWidgetFactory", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["angleWidgetFactory"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AnnotationWidget", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["AnnotationWidget"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "annotationWidgetFactory", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["annotationWidgetFactory"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BiRulerWidget", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["BiRulerWidget"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "birulerWidgetFactory", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["birulerWidgetFactory"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CrossRulerWidget", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["CrossRulerWidget"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "crossrulerWidgetFactory", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["crossrulerWidgetFactory"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EllipseWidget", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["EllipseWidget"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ellipseWidgetFactory", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["ellipseWidgetFactory"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FreehandWidget", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["FreehandWidget"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "freehandWidgetFactory", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["freehandWidgetFactory"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HandleWidget", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["HandleWidget"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "handleWidgetFactory", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["handleWidgetFactory"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PolygonWidget", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["PolygonWidget"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "polygonWidgetFactory", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["polygonWidgetFactory"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RectangleWidget", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["RectangleWidget"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "rectangleWidgetFactory", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["rectangleWidgetFactory"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RulerWidget", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["RulerWidget"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "rulerWidgetFactory", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["rulerWidgetFactory"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VoxelProbeWidget", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["VoxelProbeWidget"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "voxelprobeWidgetFactory", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["voxelprobeWidgetFactory"]; });
-
-
-
-
-
-
-
-
-
-
-
-
-
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./cameras/cameras */ "./src/cameras/cameras.js"));
+__export(__webpack_require__(/*! ./controls/controls */ "./src/controls/controls.js"));
+__export(__webpack_require__(/*! ./core/core */ "./src/core/core.js"));
+__export(__webpack_require__(/*! ./geometries/geometries */ "./src/geometries/geometries.js"));
+__export(__webpack_require__(/*! ./helpers/helpers */ "./src/helpers/helpers.js"));
+__export(__webpack_require__(/*! ./loaders/loaders */ "./src/loaders/loaders.js"));
+__export(__webpack_require__(/*! ./models/models */ "./src/models/models.js"));
+__export(__webpack_require__(/*! ./parsers/parsers */ "./src/parsers/parsers.js"));
+__export(__webpack_require__(/*! ./presets/presets */ "./src/presets/presets.js"));
+__export(__webpack_require__(/*! ./shaders/shaders */ "./src/shaders/shaders.js"));
+__export(__webpack_require__(/*! ./widgets/widgets */ "./src/widgets/widgets.js"));
 var pckg = __webpack_require__(/*! ../package.json */ "./package.json");
-window.console.log('ami v' + pckg.version + ' (three v' + pckg.config.threeVersion + ')');
+window.console.log("ami v" + pckg.version + " (three v" + pckg.config.threeVersion + ")");
+
 
 /***/ }),
 
@@ -49306,12 +49137,12 @@ var widgetsVoxelprobe = function widgetsVoxelprobe() {
 
 /***/ 0:
 /*!**************************!*\
-  !*** multi ./src/ami.js ***!
+  !*** multi ./src/ami.ts ***!
   \**************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! ./src/ami.js */"./src/ami.js");
+module.exports = __webpack_require__(/*! ./src/ami.ts */"./src/ami.ts");
 
 
 /***/ })
